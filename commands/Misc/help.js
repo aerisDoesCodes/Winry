@@ -23,19 +23,25 @@ module.exports = class extends Command {
 **Description** ${cmd.description}
 **Usage** ${cmd.usage.fullUsage(msg)}`
 			].join('\n');
-			return msg.sendMessage(info);
+			return msg.send(info);
 		}
 		const help = await this.buildHelp(msg);
 		const categories = Object.keys(help);
-		// const embed = new this.client.methods.Embed();
+		const embed = new this.client.methods.Embed();
 		const helpMessage = [];
-		msg.channel.send("**__Info__**\nuserinfo\n\n**__Main__**\nblur, google, urban, help, invite, ping, stats\n\n**__Image__**\ncat, dog")
-		// .then(() => { if (msg.channel.type !== 'dm' && this.client.user.bot) msg.sendMessage('📥 | Commands have been sent to your DMs.'); })
-		// .catch(() => { if (msg.channel.type !== 'dm' && this.client.user.bot) msg.sendMessage("❌ | You have DMs disabled, I couldn't send you the commands in DMs."); });
+		embed.setColor()
+		.setAuthor(`${this.client.user.username}`, this.client.displayAvatarURL)
+		.addField("Commands", "Do `-help <command name>` for extended help.")
+		.addField("misc", "`ping\ncat\ndog\ngoogle\nurban\n8ball\n`", true)
+		.addField("info", "`serverinfo\nstats\nuserinfo\ninvite`", true)
+		.addField("moderator", "`ban\nkick\nmute\nsoftban\nwarn\ndeafen\nvcmute\nmute`")
+		msg.author.send({embed})
+		.then(() => { if (msg.channel.type !== 'dm' && this.client.user.bot) msg.send('📥 | Commands have been sent to your DMs.'); })
+		.catch(() => { if (msg.channel.type !== 'dm' && this.client.user.bot) msg.send("❌ | You have DMs disabled, I couldn't send you the commands in DMs."); });
 
 		return msg[method].send(helpMessage, { split: { char: '\u200b' } })
-		//	.then(() => { if (msg.channel.type !== 'dm' && this.client.user.bot) msg.sendMessage('📥 | Commands have been sent to your DMs.'); })
-		//	.catch(() => { if (msg.channel.type !== 'dm' && this.client.user.bot) msg.sendMessage("❌ | You have DMs disabled, I couldn't send you the commands in DMs."); });
+		//	.then(() => { if (msg.channel.type !== 'dm' && this.client.user.bot) msg.send('📥 | Commands have been sent to your DMs.'); })
+		//	.catch(() => { if (msg.channel.type !== 'dm' && this.client.user.bot) msg.send("❌ | You have DMs disabled, I couldn't send you the commands in DMs."); });
 	}
 
 	async buildHelp(msg) {
