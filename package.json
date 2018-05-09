@@ -1,24 +1,31 @@
 {
-  "name": "catbot-rewritten",
-  "version": "0.0.0",
-  "description": "Catbot rewrite",
+  "name": "magik",
+  "version": "1.0.0",
+  "description": "A simple discord bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=8"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goddycodes/catbot-rewrite.git"
+    "url": "git+https://github.com/aerisDoesCodes/magik.git"
   },
-  "author": "Thief#8210",
+  "author": "xyz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/goddycodes/catbot-rewrite/issues"
+    "url": "https://github.com/aerisDoesCodes/magik/issues"
   },
-  "homepage": "https://github.com/goddycodes/catbot-rewrite#readme",
   "dependencies": {
-    "discord.js": "^11.2.1",
-    "pg": "7.4.1",
-    "fs": "0.0.1-security"
+    "chalk": "^2.3.0",
+    "discord.js": "^11.3.2",
+    "enmap": "^2.0.4",
+    "enmap-level": "^2.0.2",
+    "moment": "^2.20.1",
+    "moment-duration-format": "^2.2.0",
+    "express": "^4.16.3"
   }
 }
