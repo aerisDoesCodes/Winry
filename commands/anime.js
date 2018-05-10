@@ -1,5 +1,5 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  const Discord = require('discord.js')
+const Discord = require('discord.js')
 const embed = new Discord.RichEmbed()
 const randomPuppy = require('random-puppy');
 const subreddits = [
@@ -21,7 +21,7 @@ if(!message.member.hasPermission(`EMBED_LINKS`)) return message.channel.send("I 
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: [],
   permLevel: "User"
 };

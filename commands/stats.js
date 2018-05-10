@@ -7,6 +7,7 @@ const cmdFiles = fs.readdirSync('./commands/').length
 
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
+if(!message.member.hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
 const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 const embed = new Discord.RichEmbed();
 embed.setAuthor("STATISTICS", client.user.avatarURL)
@@ -21,7 +22,7 @@ message.channel.send({embed})
 }
 exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: [],
   permLevel: "User"
 };

@@ -21,7 +21,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: [],
   permLevel: "User"
 };
@@ -29,6 +29,6 @@ exports.conf = {
 exports.help = {
   name: "nut",
   category: "Images",
-  description: "NUUUUUUT.",
-  usage: "nut"
+  description: "Give some nut.",
+  usage: "nut [args]"
 };
