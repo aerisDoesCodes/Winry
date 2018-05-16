@@ -1,5 +1,12 @@
+const cooldown = new Set();
+
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
  if(!message.guild.member(client.user).hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
+ if (cooldown.has(message.author.id)) {
+      return message.channel.send(`**${message.author.username}, please cool down! (10 seconds left)**`).then(m => {
+        m.delete(6000)
+      });
+     }
   const jimp = require('jimp');
   const penis = `8${"=".repeat((Math.floor(Math.random() * 10) + 1 ) * 2)}D`
      // const content = message.content.split(' ').slice(1).join(' ');
@@ -41,6 +48,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
          });
        });
      }
+     cooldown.add(message.author.id);
+        setTimeout(() => {
+          cooldown.delete(message.author.id);
+        }, 10000);
 };
 
 exports.conf = {

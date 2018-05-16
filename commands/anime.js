@@ -1,3 +1,5 @@
+const cooldown = new Set();
+
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 const Discord = require('discord.js')
 const embed = new Discord.RichEmbed()
@@ -8,11 +10,20 @@ const subreddits = [
 ]
 const sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 if(!message.guild.member(client.user).hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
+if (cooldown.has(message.author.id)) {
+     return message.channel.send(`**${message.author.username}, please cool down! (3 seconds left)**`).then(m => {
+       m.delete(6000)
+     });
+    }
         randomPuppy(sub).then(url=> {
             embed.setImage(url)
             .setFooter("Powered by random-puppy")
             message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
         });
+        cooldown.add(message.author.id);
+           setTimeout(() => {
+             cooldown.delete(message.author.id);
+           }, 3000);
 };
 
 exports.conf = {
