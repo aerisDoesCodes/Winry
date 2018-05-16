@@ -5,6 +5,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   if (!content) return message.reply("Gimme an error to send!");
   if (content.length > 15) { return message.reply("You must not exceed more than 15 characters!") };
        jimp.read('http://i.imgur.com/b9yMgxq.jpg', (err, image) => {
+         message.channel.send(':gear: generating...').then(async (msg) => {msg.delete(5000)})
          if (err) return console.log(err);
          const text = new jimp(500, 150, function(err, text) {
            if (err) return console.log(err);
