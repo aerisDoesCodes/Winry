@@ -7,7 +7,7 @@ const cmdFiles = fs.readdirSync('./commands/').length
 
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
-if(!message.member.hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
+if(!message.guild.member(client.user).hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
 const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 const embed = new Discord.RichEmbed();
 embed.setAuthor("STATISTICS", client.user.avatarURL)
@@ -18,7 +18,7 @@ embed.setAuthor("STATISTICS", client.user.avatarURL)
 .addField("Node", `${process.version}`, true)
 .addField("Commands", `${cmdFiles}`, true)
 .addField("Uptime", `${duration}`, true)
-message.channel.send({embed})
+message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
 }
 exports.conf = {
   enabled: true,

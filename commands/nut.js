@@ -1,5 +1,5 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  if(!message.member.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
+ if(!message.guild.member(client.user).hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
   const jimp = require('jimp');
      const content = message.content.split(' ').slice(1).join(' ');
        if (!content) return message.reply("Gimme somethin to nut mate!");
@@ -12,7 +12,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
               image.composite(text, 15, 5)
               image.getBuffer(jimp.AUTO, (err, buffer) => {
                 if (err) return console.log(err);
-                message.channel.sendFile(buffer)
+                message.channel.sendFile(buffer).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
               })
            });
          });
@@ -28,7 +28,7 @@ exports.conf = {
 
 exports.help = {
   name: "nut",
-  category: "Images",
+  category: "Image Manipulation",
   description: "Give some nut.",
   usage: "nut [args]"
 };

@@ -7,16 +7,12 @@ const subreddits = [
     'anime'
 ]
 const sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
-if(!message.member.hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
-    try {
+if(!message.guild.member(client.user).hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
         randomPuppy(sub).then(url=> {
             embed.setImage(url)
             .setFooter("Powered by random-puppy")
-            message.channel.send({embed})
-        })
-        } catch(e) {
-            message.channel.send(`An error occured:\n**${e}**\n\nPlease report this to the administrator if you think this is a bug.`)
-        }
+            message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
+        });
 };
 
 exports.conf = {
