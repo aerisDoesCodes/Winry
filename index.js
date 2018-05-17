@@ -13,11 +13,37 @@ const EnmapLevel = require("enmap-level");
 const http = require('http');
 var express = require('express');
 var app = express();
+const client = new Discord.Client();
+
+//Guild Event
+client.on("guildDelete", guild => {
+  const Discord = require("discord.js");
+  const embed = new Discord.RichEmbed();
+  // embed.setAuthor('Left', `${guild.iconURL}` || 'https://cdn.discordapp.com/attachments/446502365781295123/446655458292269076/Moosik.png')
+  embed.addField('Owner Name', `${guild.owner.user.username}`, true)
+  .addField('Server Name', `${guild.name}`, true)
+  .addField('Owner ID', `${guild.owner.user.id}`, true)
+  .addField('Server ID', `${guild.id}`, true)
+  .setColor(0xFF0000)
+  client.guilds.get("446349464639373323").channels.get("446653576215789568").send({embed})
+})
+
+client.on("guildCreate", guild => {
+  const Discord = require("discord.js");
+  const embed = new Discord.RichEmbed();
+  // embed.setAuthor('Joined', `${guild.iconURL}` || 'https://cdn.discordapp.com/attachments/446502365781295123/446655458292269076/Moosik.png')
+  embed.addField('Owner Name', `${guild.owner.user.username}`, true)
+  .addField('Server Name', `${guild.name}`, true)
+  .addField('Owner ID', `${guild.owner.user.id}`, true)
+  .addField('Server ID', `${guild.id}`, true)
+  .setColor(0x00ff00)
+  client.guilds.get("446349464639373323").channels.get("446653576215789568").send({embed})
+})
 
 // This is your client. Some people call it `bot`, some people call it `self`,
 // some might call it `cootchie`. Either way, when you see `client.something`,
 // or `bot.something`, this is what we're refering to. Your client.
-const client = new Discord.Client();
+
 
 // Here we load the config file that contains our token and our prefix values.
 client.config = require("./config.js");

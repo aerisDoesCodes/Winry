@@ -1,7 +1,7 @@
 // This event executes when a new guild (server) is left.
 
-module.exports = (client, guild) => {
-  client.logger.cmd(`[GUILD LEAVE] ${guild.name} (${guild.id}) removed the bot.`);
+module.exports = (client, message, guild) => {
+  client.user.setActivity(`${client.config.defaultSettings.prefix}help || ${client.guilds.size}`, {type: "PLAYING"});
 
   // If the settings Enmap contains any guild overrides, remove them.
   // No use keeping stale data!
