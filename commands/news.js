@@ -1,13 +1,13 @@
-// const cooldown = new Set();
+const cooldown = new Set();
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 if(!message.guild.member(client.user).hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
 const Jimp = require('jimp');
-// if (cooldown.has(message.author.id)) {
-//      return message.channel.send(`**${message.author.username}, please cool down! (10 seconds left)**`).then(m => {
-//        m.delete(3000)
-//      });
-//     }
+if (cooldown.has(message.author.id)) {
+     return message.channel.send(`**${message.author.username}, please cool down! (10 seconds left)**`).then(m => {
+       m.delete(3000)
+     });
+    }
    if (message.mentions.users.size === 0) {
      Jimp.read(message.author.avatarURL || message.author.defaultAvatarURL, function (err, lonna){
      Jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Fimage.png?1526567947349', (err, lenna) => {
@@ -33,10 +33,10 @@ message.channel.sendFile(buffer).catch((err) => {message.channel.send(`:warning:
 })
 })
 }
-// cooldown.add(message.author.id);
-//   setTimeout(() => {
-//     cooldown.delete(message.author.id);
-//   }, 10000);
+cooldown.add(message.author.id);
+  setTimeout(() => {
+    cooldown.delete(message.author.id);
+  }, 10000);
 };
 
 exports.conf = {
