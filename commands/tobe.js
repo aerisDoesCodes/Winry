@@ -51,6 +51,6 @@ permLevel: "User"
 exports.help = {
 name: "tobe",
 category: "Image Manipulation",
-description: "test.",
-usage: "test"
+description: "To be or Not to be, that is the question.",
+usage: "tobe [user](Optional)"
 };
