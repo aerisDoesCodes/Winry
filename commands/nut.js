@@ -3,14 +3,14 @@ const cooldown = new Set();
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
  if(!message.guild.member(client.user).hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
  if (cooldown.has(message.author.id)) {
-      return message.channel.send(`**${message.author.username}, please cool down! (10 seconds left)**`).then(m => {
+      return message.channel.send(`**${message.author.username}, please cool down! (10 seconds)**`).then(m => {
         m.delete(6000)
       });
      }
   const jimp = require('jimp');
      const content = message.content.split(' ').slice(1).join(' ');
        if (!content) return message.reply("Gimme somethin to nut mate!");
-       jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2FPenis%20Size%201.png?1526464771236', (err, image) => {
+       jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Fnut.jpg?1525878903872', (err, image) => {
          message.channel.send(':gear: generating...').then(async (msg) => {msg.delete(5000)})
          if (err) return console.log(err);
          const text = new jimp(630, 150, function(err, text) {

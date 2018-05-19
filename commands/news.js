@@ -4,7 +4,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 if(!message.guild.member(client.user).hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
 const Jimp = require('jimp');
 if (cooldown.has(message.author.id)) {
-     return message.channel.send(`**${message.author.username}, please cool down! (10 seconds left)**`).then(m => {
+     return message.channel.send(`**${message.author.username}, please cool down! (10 seconds)**`).then(m => {
        m.delete(3000)
      });
     }
