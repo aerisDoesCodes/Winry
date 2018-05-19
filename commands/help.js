@@ -28,7 +28,7 @@ exports.run = (client, message, args, level) => {
       }
       output += `\`${message.settings.prefix}${c.help.name}\` `;
     });
-    message.channel.send(output)
+    message.channel.send(output + "\n\nA very cool invite link: https://invite.gg/justabot")
   } else {
     // Show individual command's help.
     let command = args[0];
