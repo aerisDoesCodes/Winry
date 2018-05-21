@@ -5,7 +5,7 @@ if(!message.guild.member(client.user).hasPermission(`ATTACH_FILES`)) return mess
 const Jimp = require('jimp');
 if (cooldown.has(message.author.id)) {
      return message.channel.send(`**${message.author.username}, please cool down! (10 seconds)**`).then(m => {
-       m.delete(3000)
+       m.delete(10000)
      });
     }
    // const content = message.content.split(' ').slice(1).join(' ');
