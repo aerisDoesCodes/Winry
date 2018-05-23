@@ -1,30 +1,28 @@
-// const cooldown = new Set();
-//https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2FClyde.png?1526537796321
-exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-// if (cooldown.has(message.author.id)) {
-//      return message.channel.send(`${message.author}, please cool down! (5 seconds left)`).then(m => {
-//        m.delete(6000)
-//      });
-//     }
+const cooldown = new Set();
 
-
-
-// cooldown.add(message.author.id);
-//    setTimeout(() => {
-//      cooldown.delete(message.author.id);
-//    }, 6000);
+exports.run = (client, message, args, level) => {
+  if (cooldown.has(message.author.id)) {
+       return message.channel.send(`**${message.author.username}, please cool down! (3 seconds)**`).then(m => {
+         m.delete(10000)
+       });
+      }
+message.channel.send('ok')
+  cooldown.add(message.author.id);
+     setTimeout(() => {
+       cooldown.delete(message.author.id);
+     }, 3000);
 };
 
 exports.conf = {
-enabled: true,
-guildOnly: true,
-aliases: [],
-permLevel: "Bot Owner"
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: "Bot Owner"
 };
 
 exports.help = {
-name: "test",
-category: "Test Cmds",
-description: "test.",
-usage: "test"
+  name: "animejs",
+  category: "ok",
+  description: "Not sure what should I add here.",
+  usage: "test [ok]"
 };

@@ -18,14 +18,16 @@ getBoobs = (callback) => {
   };
 
 exports.run = (client, message, args, level) => {
-  if(!message.guild.member(client.user).hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug. A very cool invite link https://invite.gg/justabot");
+  if(!message.guild.me.hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug. A very cool invite link https://invite.gg/justabot");
   if (cooldown.has(message.author.id)) {
-       return message.channel.send(`**${message.author.username}, please cool down! (6 seconds)**`).then(m => {
+       return message.reply(`**please cool down! (6 seconds)**`).then(m => {
          m.delete(10000)
        });
       }
     dbl.hasVoted(message.author.id).then(voters => {
-   if(!voters) return message.channel.send('You must upvote this bot for NSFW commands!\nUpvote Here: https://discordbots.org/bot/442917513454682122/vote');
+if(!voters) return message.channel.send("Senpai <:bloblove:448030481133338641> you haven't upvoted for me :c"+ 
+    "\nPlease upvote for me to use my NSFW commands >////< Please go here: https://discordbots.org/bot/442917513454682122/vote"+
+    " After upvoting, please wait 1 minute to use the command again as the BotList API is too slow!");
     if (!message.channel.nsfw) return message.channel.send("You must only run this command in a NSFW channel!");
     return getBoobs((a,b)=>{
             b ='http://media.oboobs.ru/'+b;

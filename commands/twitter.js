@@ -8,16 +8,17 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
       });
      }
   const jimp = require('jimp');
-     const content = message.content.split(' ').slice(1).join(' ');
-       if (!content) return message.reply("Gimme somethin to nut mate!");
-       jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Fnut.jpg?1525878903872', (err, image) => {
+  const content = message.content.split(' ').slice(1).join(' ');
+  if (!content) return message.reply("Arguments required!");
+  if (content.length > 30) { return message.reply("You must not exceed more than 30 characters!") };
+       jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Ftwitter.png?1527051965693', (err, image) => {
          message.channel.send(':gear: generating...').then(async (msg) => {msg.delete(5000)})
          if (err) return console.log(err);
-         const text = new jimp(630, 150, function(err, text) {
+         const text = new jimp(950, 950, function(err, text) {
            if (err) return console.log(err);
-           jimp.loadFont(jimp.FONT_SANS_32_BLACK).then(function(font) {
-              text.print(font, 0, 0, content, 650);
-              image.composite(text, 15, 5)
+           jimp.loadFont(jimp.FONT_SANS_64_BLACK).then(function(font) {
+              text.print(font, 50, 128, content, 1000);
+              image.composite(text, 0, 0)
               image.getBuffer(jimp.AUTO, (err, buffer) => {
                 if (err) return console.log(err);
                 message.channel.sendFile(buffer).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
@@ -33,14 +34,14 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 
 exports.conf = {
   enabled: true,
-  guildOnly: true,
-  aliases: [],
+  guildOnly: false,
+  aliases: ["trump"],
   permLevel: "User"
 };
 
 exports.help = {
-  name: "nut",
+  name: "twitter",
   category: "Image Manipulation",
-  description: "Give some nut.",
-  usage: "nut [args]"
+  description: "Send an message from twitter.",
+  usage: "twitter [args]"
 };

@@ -9,9 +9,9 @@ const subreddits = [
     'anime'
 ]
 const sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
-if(!message.guild.member(client.user).hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
+if(!message.guild.me.hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
 if (cooldown.has(message.author.id)) {
-     return message.channel.send(`**${message.author.username}, please cool down! (3 seconds)**`).then(m => {
+     return message.reply(`**please cool down! (3 seconds)**`).then(m => {
        m.delete(10000)
      });
     }

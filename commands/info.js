@@ -2,7 +2,7 @@ const cooldown = new Set();
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 if (cooldown.has(message.author.id)) {
-     return message.channel.send(`${message.author}, please cool down! (3 seconds)`).then(m => {
+     return message.reply(`**please cool down! (3 seconds)**`).then(m => {
        m.delete(10000)
      });
     }

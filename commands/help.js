@@ -34,13 +34,15 @@ exports.run = (client, message, args, level) => {
     const Discord = require("discord.js");
     const embed = new Discord.RichEmbed();
     const pr = "w!";
-    embed.addField("Help Command", "[Support Server](https://discord.gg/HWEMcEY) | [Bot Invite](https://discordapp.com/oauth2/authorize?client_id=442917513454682122&permissions=201386057&scope=bot)"+
-    "\n**Server Prefix:** w!\n**More Help:** w!help <commandName>")
-    .addField('<:ImageManipulation:448118659668246529> Image Manipulation', `\`${pr}achievement\`, \`${pr}bug\`, \`${pr}error\`, \`${pr}news\`, \`${pr}nut\`, \`${pr}penis\`, \`${pr}step\`, \`${pr}tobe\``)
-    .addField('<:ImageManipulation:448118659668246529> Images', `\`${pr}anime\``)
-    .addField('<:utility:423310165417263104> Utility', `\`${pr}info\`, \`${pr}invite\`, \`${pr}mylevel\`, \`${pr}ping\`, \`${pr}stats\`​`)
+    embed.addField("Help Command", "[Support](https://discord.gg/HWEMcEY) | [Bot Invite](https://discordapp.com/oauth2/authorize?client_id=442917513454682122&permissions=201386057&scope=bot)"+
+    " | [Upvote](https://discordbots.org/bot/442917513454682122/vote)"+
+    "\n**Prefix:** w!\n**Extended Help:** w!help <commandName>")
+    .addField('<:ImageManipulator:448158184218165252> Image Manipulation', `\`${pr}achievement\`, \`${pr}bug\`, \`${pr}error\`, \`${pr}news\`, \`${pr}nut\`, \`${pr}penis\`,` + 
+    `\n\`${pr}step\`, \`${pr}tobe\`, \`${pr}twitter\``)
+    .addField('<:image:448159077894193172> Images', `\`${pr}anime\``)
+    .addField('<:Utility:448159549170647071> Utility', `\`${pr}info\`, \`${pr}invite\`, \`${pr}mylevel\`, \`${pr}ping\`, \`${pr}stats\`​`)
     .addField('<:Cumdrizzle:448119014909280266> NSFW', `\`${pr}ass\`, \`${pr}boobs\`, \`${pr}neko\`, \`${pr}pantsu\`, \`${pr}pussy\`​`)
-    .addField('<:stafftools:448118904569593866> System', `\`${pr}eval\`, \`${pr}help\`, \`${pr}post\`, \`${pr}reboot\`, \`${pr}reload\`, \`${pr}set\` ​`)
+    .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}help\`, \`${pr}post\`, \`${pr}reboot\`, \`${pr}reload\`​`)
     .setColor('#f1f199')
     message.channel.send({embed});
   } else {
