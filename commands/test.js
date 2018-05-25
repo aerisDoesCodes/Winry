@@ -21,7 +21,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "animejs",
+  name: "test",
   category: "ok",
   description: "Not sure what should I add here.",
   usage: "test [ok]"
