@@ -41,7 +41,8 @@ exports.run = (client, message, args, level) => {
     `\n\`${pr}step\`, \`${pr}tobe\`, \`${pr}twitter\``)
     .addField('<:image:448159077894193172> Images', `\`${pr}anime\``)
     .addField('<:Utility:448159549170647071> Utility', `\`${pr}info\`, \`${pr}invite\`, \`${pr}mylevel\`, \`${pr}ping\`, \`${pr}stats\`​`)
-    .addField('<:Cumdrizzle:448119014909280266> NSFW', `\`${pr}ass\`, \`${pr}boobs\`, \`${pr}neko\`, \`${pr}pantsu\`, \`${pr}pussy\`​,\`${pr}teen\``)
+    .addField('<:Cumdrizzle:448119014909280266> NSFW', `\`${pr}ass\`, \`${pr}boobs\`, \`${pr}neko\`, \`${pr}pantsu\`, \`${pr}pussy\`​, \`${pr}rule34\`, \`${pr}snap\`,` + 
+    `\n\`${pr}teen\``)
     .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}help\`, \`${pr}post\`, \`${pr}reboot\`, \`${pr}reload\`​`)
     .setColor('#f1f199')
     message.channel.send({embed});
