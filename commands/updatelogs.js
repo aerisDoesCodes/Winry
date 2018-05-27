@@ -1,4 +1,5 @@
 const cooldown = new Set();
+const ver = "Winry v3.4.1"
 
 exports.run = (client, message, args, level) => {
   if (cooldown.has(message.author.id)) {
@@ -8,6 +9,7 @@ exports.run = (client, message, args, level) => {
       }
       const currentUpdate = [
         "\`\`\`diff"+
+        `\n${ver}\n`+
         "\n+ Added NSFW Commands \"w!rule34 and w!snap\""+
         "\n+ Added \"w!updatelogs\" command to stay updated"+
         "\n+ Fix typo description"+

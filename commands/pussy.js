@@ -50,6 +50,6 @@ exports.conf = {
 exports.help = {
   name: "pussy",
   category: "NSFW",
-  description: "Send's random pantsu from /r/pussy",
+  description: "Send's random pussy from /r/pussy",
   usage: "pussy"
 };

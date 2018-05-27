@@ -9,7 +9,7 @@ const config = {
   "support": [],
 
   // Your Bot's Token. Available on https://discordapp.com/developers/applications/me
-  "token": "NDQyOTE3NTEzNDU0NjgyMTIy.DdFyog.crdL3sReMK0VjycDSljk76T0kvM",
+  "token": "NDQyOTE3NTEzNDU0NjgyMTIy.DexYLg.wQgKvuZ8zqIzP_z9tN4M4KXvjF8",
 
   // Default per-server settings. New guilds have these settings.
 
@@ -17,7 +17,7 @@ const config = {
   // VIA COMMANDS IN THE GUILD.
 
   "defaultSettings" : {
-    "prefix": ".",
+    "prefix": "w!",
     "modLogChannel": "mod-log",
     "modRole": "Moderator",
     "adminRole": "Administrator",

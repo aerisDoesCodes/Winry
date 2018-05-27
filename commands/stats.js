@@ -1,3 +1,4 @@
+
 const { version } = require("discord.js");
 const Discord = require("discord.js");
 const DBL = require("dblapi.js");
@@ -6,6 +7,7 @@ const moment = require("moment");
 require("moment-duration-format");
 const fs = require('fs')
 const cmdFiles = fs.readdirSync('./commands/').length
+const ver = "Winry v3.4.1"
 const cooldown = new Set();
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
@@ -23,10 +25,11 @@ embed.setAuthor("STATISTICS", client.user.avatarURL)
 .addField("Users", `${client.users.size.toLocaleString()}`, true)
 .addField("Servers", `${client.guilds.size.toLocaleString()}`, true)
 .addField("Discord.js", `v${version}`, true)
-//.addField("Node", `${process.version}`, true)
+.addField("Node", `${process.version}`, true)
 .addField("Commands", `${cmdFiles}`, true)
 .addField("Upvotes", `${k.length}`, true)
 .addField("Uptime", `${duration}`, true)
+.addField("Version", `${ver}`, true)
 .setColor('#f1f199')
 message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
 })
