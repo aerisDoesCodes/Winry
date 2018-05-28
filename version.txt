@@ -1,4 +1,8 @@
-May 27 2018 Updates:
+May 28 2018 Version:
+Winry v3.5.1
+____________________
+
+May 27 2018 Version:
 Winry v3.4.1
 
 ____________________
