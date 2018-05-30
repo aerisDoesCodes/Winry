@@ -7,6 +7,12 @@ exports.run = (client, message, args, level) => {
        });
       }
 
+      const May3012018 = [
+        "\`\`\`diff"+
+        "\nWinry v3.7.0\n"+
+        "\n+ Added new Fun command \"w!password\""+
+        "\`\`\`"
+      ]
       const May302018 = [
         "\`\`\`diff"+
         "\nWinry v3.6.0\n"+
@@ -37,6 +43,7 @@ exports.run = (client, message, args, level) => {
         ]
 
       message.channel.send(
+      "\n\n**May 30 2018 Update:**\n" + May3012018 +
       "\n\n**May 30 2018 Updates:**\n" + May302018 +
       "\n\n**May 28 2018 Update:**\n" + May282018 +
       "\n\n**May 27 2018 Updates:**\n" + May272018)
@@ -56,6 +63,6 @@ exports.conf = {
 exports.help = {
   name: "updatelogs",
   category: "Utility",
-  description: "Check's the Winry's updates.",
+  description: "Checks Winry's updates.",
   usage: "updatelog"
 };

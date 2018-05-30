@@ -40,7 +40,7 @@ exports.run = (client, message, args, level) => {
     .addField('<:ImageManipulator:448158184218165252> Image Manipulation', `\`${pr}achievement\`, \`${pr}bug\`, \`${pr}error\`, \`${pr}news\`, \`${pr}nut\`, \`${pr}penis\`,` + 
     `\n\`${pr}step\`, \`${pr}tobe\`, \`${pr}twitter\``)
     .addField('<:image:448159077894193172> Images', `\`${pr}anime\`, \`${pr}bunny\``)
-    .addField('<:Fun:450641330301960194> Fun', `\`${pr}ascii\``)
+    .addField('<:Fun:450641330301960194> Fun', `\`${pr}ascii\`, \`${pr}password\``)
     .addField('<:Utility:448159549170647071> Utility', `\`${pr}info\`, \`${pr}invite\`, \`${pr}mylevel\`, \`${pr}ping\`, \`${pr}stats\`, \`${pr}updatelogs\`​`)
     .addField('<:Cumdrizzle:448119014909280266> NSFW', `\`${pr}ass\`, \`${pr}boobs\`, \`${pr}catsu\`, \`${pr}neko\`, \`${pr}pantsu\`, \`${pr}pussy\`​, \`${pr}rule34\`,` + 
     `\n\`${pr}snap\`, \`${pr}teen\``)

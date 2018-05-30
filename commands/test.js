@@ -1,5 +1,5 @@
 const cooldown = new Set();
-const figletAsync = require('util').promisify(require('figlet'));
+var generator = require('generate-password');
 
 exports.run = async (client, message, level) => {
 //   if (cooldown.has(message.author.id)) {
@@ -7,13 +7,21 @@ exports.run = async (client, message, level) => {
 //          m.delete(10000)
 //        });
 //       }
-const args = message.content.split(' ').slice(1).join(' ');
+const amount = message.content.split(' ').slice(1).join(' ');
 
-if (!args) return message.reply("Please give me something to say!");
-if (args.length > '15') return message.reply("You must not exceed more than 15 characters!");
-const data = await figletAsync(args);
-return message.channel.send(data, { code: true });
+if(amount < 1) {
+  return message.reply("The length of password must be 1-100.");
+}
+if(amount > 200) {
+  return message.reply("Choose a number between 1-100.");
+}
 
+var password = generator.generate({
+   length: amount,
+   numbers: true
+});
+
+message.channel.send("**Your password has been generated:** " + password)
 //   cooldown.add(message.author.id);
 //      setTimeout(() => {
 //        cooldown.delete(message.author.id);
