@@ -4,9 +4,9 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 const Discord = require('discord.js')
 const embed = new Discord.RichEmbed()
 const randomPuppy = require('random-puppy');
-const subreddits = [
-    'awwnime',
-    'anime'
+var subreddits = [
+    'Rabbits',
+    'cutebunnies'
 ]
 const sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 if(!message.guild.me.hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
@@ -30,20 +30,13 @@ if (cooldown.has(message.author.id)) {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
+  aliases: ['bun'],
   permLevel: "User"
 };
 
 exports.help = {
-  name: "anime",
+  name: "bunny",
   category: "Images",
-  description: "Send's random catsu from /r/anime",
-  usage: "anime"
+  description: "Send's random catsu from /r/cutebunnies",
+  usage: "bunny"
 };
-// msg.channel.createMessage({embed:{
-//     "color": config.options.embedColour,
-//     "image": {
-//         "url": url
-//     },
-//     "footer" : { text: "Powered by random-puppy" }
-// }})

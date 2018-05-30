@@ -9,7 +9,10 @@ exports.run = (client, message, args, level) => {
 
       const May302018 = [
         "\`\`\`diff"+
-        "\nWinry v3.5.2\n"+
+        "\nWinry v3.6.0\n"+
+        "\n+ Added new NSFW command \"w!catsu\""+
+        "\n+ Added new Image command \"w!bunny\""+
+        "\n+ Updated command description"+
         "\n- Remove the cool invite link(invite.gg)"+
         "\n+ Updated invite link \"w!invite\""+
         "\`\`\`"
@@ -33,17 +36,10 @@ exports.run = (client, message, args, level) => {
         "\`\`\`"
         ]
 
-        const May252018 = [
-          "\`\`\`diff"+
-          "\n+ Added NSFW Command \"w!teen\""+
-          "\`\`\`"
-          ]
-
       message.channel.send(
-      "**May 30 2018 Updates:**\n" + May302018 +
+      "\n\n**May 30 2018 Updates:**\n" + May302018 +
       "\n\n**May 28 2018 Update:**\n" + May282018 +
-      "\n\n**May 27 2018 Updates:**\n" + May272018 + 
-      "\n\n" + "**May 25 2018 Update:**\n" + May252018)
+      "\n\n**May 27 2018 Updates:**\n" + May272018)
   cooldown.add(message.author.id);
      setTimeout(() => {
        cooldown.delete(message.author.id);
