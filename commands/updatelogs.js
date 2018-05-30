@@ -7,6 +7,14 @@ exports.run = (client, message, args, level) => {
        });
       }
 
+      const May302018 = [
+        "\`\`\`diff"+
+        "\nWinry v3.5.2\n"+
+        "\n- Remove the cool invite link(invite.gg)"+
+        "\n+ Updated invite link \"w!invite\""+
+        "\`\`\`"
+      ]
+
       const May282018 = [
         "\`\`\`diff"+
         "\nWinry v3.5.1\n"+
@@ -32,7 +40,8 @@ exports.run = (client, message, args, level) => {
           ]
 
       message.channel.send(
-      "**May 28 2018 Update:**\n" + May282018 +
+      "**May 30 2018 Updates:**\n" + May302018 +
+      "\n\n**May 28 2018 Update:**\n" + May282018 +
       "\n\n**May 27 2018 Updates:**\n" + May272018 + 
       "\n\n" + "**May 25 2018 Update:**\n" + May252018)
   cooldown.add(message.author.id);
