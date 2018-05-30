@@ -9,11 +9,11 @@ exports.run = async (client, message, level) => {
       }
 const amount = message.content.split(' ').slice(1).join(' ');
 
-if(amount < 1) {
-  return message.reply("The length of password must be 1-100.");
+if(amount < 5) {
+  return message.reply("The length of password must be 5-100.");
 }
 if(amount > 200) {
-  return message.reply("Choose a number between 1-100.");
+  return message.reply("Choose a number between 5-100.");
 }
 
 const password = generator.generate({
