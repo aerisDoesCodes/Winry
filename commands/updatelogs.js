@@ -9,9 +9,10 @@ exports.run = (client, message, args, level) => {
 
       const May3012018 = [
         "\`\`\`diff"+
-        "\nWinry v3.8.0\n"+
+        "\nWinry v3.8.1\n"+
         "\n+ Added new Fun command \"w!password\""+
         "\n+ Added new a function where you can choose your option on \"w!password\" command"+
+        "\n+ catch error if dm is close on \"w!password\" command"+
         "\`\`\`"
       ]
       const May302018 = [
