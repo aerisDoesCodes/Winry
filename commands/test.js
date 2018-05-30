@@ -16,12 +16,30 @@ if(amount > 200) {
   return message.reply("Choose a number between 1-100.");
 }
 
-var password = generator.generate({
+const password = generator.generate({
    length: amount,
    numbers: true
 });
 
-message.channel.send("**Your password has been generated:** " + password)
+const collector = message.channel.createCollector(m => m.author === message.author, {
+  time: 10000
+});
+message.channel.send("Would you like it sent here or in the DMs? [here, dm, cancel]");
+collector.on("message", m => {
+  if (m.content.toUpperCase() === "HERE") collector.stop("here");
+  if (m.content.toUpperCase() === "DM") collector.stop("dm");
+  if (m.content.toUpperCase() === "CANCEL") collector.stop("aborted");
+});
+collector.on("end", (collected, reason) => {
+  if (reason === "time") return message.channel.send("The prompt timed out...");
+  if (reason === "aborted") return message.channel.send("The command has been aborted");
+  if (reason === "here") {
+    message.channel.send("**Your password has been generated:** " + password)
+  }
+  if (reason === "dm") {
+    message.author.send("**Your password has been generated:** " + password)
+  }
+});
 //   cooldown.add(message.author.id);
 //      setTimeout(() => {
 //        cooldown.delete(message.author.id);
