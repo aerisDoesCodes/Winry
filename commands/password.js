@@ -47,7 +47,7 @@ collector.on("end", (collected, reason) => {
 };
 exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: ['pgen', 'passgen', 'pass'],
   permLevel: "User"
 };
