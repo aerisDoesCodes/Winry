@@ -17,6 +17,7 @@ const client = new Discord.Client();
 
 //Guild Event
 client.on("guildDelete", guild => {
+  client.user.setActivity(`${client.config.defaultSettings.prefix}help || ${client.guilds.size} Servers`, {type: "PLAYING"});
   const Discord = require("discord.js");
   const embed = new Discord.RichEmbed();
   // embed.setAuthor('Left', `${guild.iconURL}` || 'https://cdn.discordapp.com/attachments/446502365781295123/446655458292269076/Moosik.png')
@@ -29,6 +30,7 @@ client.on("guildDelete", guild => {
 })
 
 client.on("guildCreate", guild => {
+  client.user.setActivity(`${client.config.defaultSettings.prefix}help || ${client.guilds.size} Servers`, {type: "PLAYING"});
   const Discord = require("discord.js");
   const embed = new Discord.RichEmbed();
   // embed.setAuthor('Joined', `${guild.iconURL}` || 'https://cdn.discordapp.com/attachments/446502365781295123/446655458292269076/Moosik.png')
@@ -75,10 +77,10 @@ app.get("/", (request, response) => {
   console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
 });
-app.listen(process.env.PORT);
+app.listen(8080);
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
+}, 300000);
 
 const init = async () => {
 

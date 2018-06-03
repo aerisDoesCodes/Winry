@@ -18,7 +18,7 @@ if (cooldown.has(message.author.id)) {
         randomPuppy(sub).then(url=> {
             embed.setImage(url)
             .setFooter("Powered by random-puppy")
-			.setColor('#d183d3')
+      .setColor('#d183d3')
             message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
         });
         cooldown.add(message.author.id);
