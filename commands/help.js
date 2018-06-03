@@ -45,7 +45,7 @@ exports.run = (client, message, args, level) => {
     .addField('<:Cumdrizzle:448119014909280266> NSFW', `\`${pr}ass\`, \`${pr}boobs\`, \`${pr}catsu\`, \`${pr}neko\`, \`${pr}pantsu\`, \`${pr}pussy\`​, \`${pr}rule34\`,` + 
     `\n\`${pr}snap\`, \`${pr}teen\``)
     .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}help\`, \`${pr}post\`, \`${pr}reboot\`, \`${pr}reload\`​`)
-	.addField('Axyz', "Axyz a Discord Bot for general Server use (Moderation, Giveaways, Autorole, Welcome Messages, Economy & More!)")
+	.addField('Axyz', "[Axyz](https://discordapp.com/oauth2/authorize?client_id=449101697827209218&scope=bot&permissions=-1) is a Discord Bot for general Server use (Moderation, Giveaways, Autorole, Welcome Messages, Economy & More!). Invite Axyz by click [here](https://discordapp.com/oauth2/authorize?client_id=449101697827209218&scope=bot&permissions=-1).")
     .setColor('#f1f199')
     message.channel.send({embed});
   } else {
