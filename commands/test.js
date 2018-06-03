@@ -1,87 +1,47 @@
 const cooldown = new Set();
 
-exports.run = async (client, message, level) => {
-
-  const v400 = [
-    "\`\`\`diff"+
-    "\nWinry v4.0.0\n"+
-    "\n+ Changes char amount of command \"w!password\""+
-    "\n+ Changes function of command \"updatelogs\""+
-    "\n+ Updated dependencies"+
-    "\`\`\`"
-  ]
-
-  const v381 = [
-    "\`\`\`diff"+
-    "\nWinry v3.8.1\n"+
-    "\n+ Added new Fun command \"w!password\""+
-    "\n+ Added new a function where you can choose your option on \"w!password\" command"+
-    "\n+ catch error if dm is close on \"w!password\" command"+
-    "\`\`\`"
-  ]
-  const v360 = [
-    "\`\`\`diff"+
-    "\nWinry v3.6.0\n"+
-    "\n+ Added new NSFW command \"w!catsu\""+
-    "\n+ Added new Image command \"w!bunny\""+
-    "\n+ Updated command description"+
-    "\n- Remove the cool invite link(invite.gg)"+
-    "\n+ Updated invite link \"w!invite\""+
-    "\`\`\`"
-  ]
-
-  const v351 = [
-    "\`\`\`diff"+
-    "\nWinry v3.5.1\n"+
-    "\n+ Added Fun Command \"w!ascii\" on Fun Category"+
-    "\`\`\`"
-  ]
-
-  const v341 = [
-    "\`\`\`diff"+
-    "\nWinry v3.4.1\n"+
-    "\n+ Added NSFW Commands \"w!rule34 and w!snap\""+
-    "\n+ Added \"w!updatelogs\" command to stay updated"+
-    "\n+ Fix typo description"+
-    "\n+ All commands now have descriptions"+
-    "\n+ More NSFW commands coming soon™"+
-    "\`\`\`"
-    ]
-
-const collector = message.channel.createMessageCollector(m => m.author === message.author, {
-  time: 25000
-});
-message.channel.send("Which version updates would you want to see? Type: `cancel` to cancel\n List:\nv400, v381, v360, v351, v341"+
-"\n\nPlease type the version you want. Example: v400");
-collector.on("message", m => {
-  if (m.content.toUpperCase() === "V400") collector.stop("v400");
-  if (m.content.toUpperCase() === "V381") collector.stop("v381");
-  if (m.content.toUpperCase() === "V360") collector.stop("v360");
-  if (m.content.toUpperCase() === "V351") collector.stop("v351");
-  if (m.content.toUpperCase() === "V341") collector.stop("v341");
-  if (m.content.toUpperCase() === "CANCEL") collector.stop("aborted");
-});
-collector.on("end", (collected, reason) => {
-  if (reason === "time") return message.channel.send("The prompt timed out...");
-  if (reason === "aborted") return message.channel.send("The command has been aborted");
-  if (reason === "v400") {
-    message.channel.send("**May 30 2018 Updates:**" + v400)
+exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
+  if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
+   const Jimp = require('jimp');
+   if (cooldown.has(message.author.id)) {
+        return message.reply(`**please cool down! (10 seconds)**`).then(m => {
+          m.delete(10000)
+        });
+       }
+      // const content = message.content.split(' ').slice(1).join(' ');
+      //   if (!content) return message.reply("Gimme somethin to nut mate!");
+      const mask = "https://cdn.discordapp.com/attachments/419724812592611340/452834074629898250/Mask.png"
+      if (message.mentions.users.size === 0) {
+        Jimp.read(message.author.avatarURL || message.author.defaultAvatarURL, function (err, lonna){
+        Jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Fbitch-might-be-shakespeare.jpg?1526469728857', (err, lenna) => {
+        message.channel.send(':gear: generating...').then(async (message) => {message.delete(5000)})
+        lonna.resize(180, 180)
+        // lonna.crop(12,10,88,102)
+        lenna.composite(lonna, 128, 170 );
+        lonna.mask(mask, 0,0)
+        lenna.getBuffer(Jimp.AUTO, (err, buffer) => {
+       message.channel.sendFile(buffer).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
+        })
+      })
+    })
+  } else {
+    Jimp.read(message.mentions.users.first().avatarURL || message.mentions.users.first().defaultAvatarURL, function (err, lonna){
+    Jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Fbitch-might-be-shakespeare.jpg?1526469728857', (err, lenna) => {
+    message.channel.send(':gear: generating...').then(async (message) => {message.delete(5000)})
+    lonna.resize(180, 180)
+    // lonna.crop(12,10,88,102)
+    lenna.composite(lonna, 128, 170 );
+    lenna.getBuffer(Jimp.AUTO, (err, buffer) => {
+   message.channel.sendFile(buffer).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
+    })
+  })
+ })
   }
-  if (reason === "v381") {
-    message.channel.send("**May 30 2018 Update:**" + v381)
-  }
-  if (reason === "v360") {
-    message.author.send("**May 30 2018 Updates:**" + v360)
-  }
-  if (reason === "v351") {
-    message.author.send("**May 28 2018 Update:**" + v351)
-  }
-  if (reason === "v341") {
-    message.author.send("**May 27 2018 Updates:**" + v341)
-  }
-});
-
-}
+  cooldown.add(message.author.id);
+     setTimeout(() => {
+       cooldown.delete(message.author.id);
+     }, 10000);
+ };
 exports.conf = {
   enabled: true,
   guildOnly: false,
