@@ -18,7 +18,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         lonna.resize(180, 180)
         // lonna.crop(12,10,88,102)
         lenna.composite(lonna, 128, 170 );
-        lonna.mask(mask, 0,0)
+        lenna.mask(mask, 0,0)
         lenna.getBuffer(Jimp.AUTO, (err, buffer) => {
        message.channel.sendFile(buffer).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
         })
