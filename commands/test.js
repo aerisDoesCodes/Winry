@@ -10,8 +10,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
        }
       // const content = message.content.split(' ').slice(1).join(' ');
       //   if (!content) return message.reply("Gimme somethin to nut mate!");
-      const mask = "https://cdn.discordapp.com/attachments/419724812592611340/452834074629898250/Mask.png"
       if (message.mentions.users.size === 0) {
+        Jimp.read('https://cdn.discordapp.com/attachments/419724812592611340/452834074629898250/Mask.png', (mask) => {
         Jimp.read(message.author.avatarURL || message.author.defaultAvatarURL, function (err, lonna){
         Jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Fbitch-might-be-shakespeare.jpg?1526469728857', (err, lenna) => {
         message.channel.send(':gear: generating...').then(async (message) => {message.delete(5000)})
@@ -24,7 +24,8 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
         })
       })
     })
-  } else {
+  })
+} else {
     Jimp.read(message.mentions.users.first().avatarURL || message.mentions.users.first().defaultAvatarURL, function (err, lonna){
     Jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Fbitch-might-be-shakespeare.jpg?1526469728857', (err, lenna) => {
     message.channel.send(':gear: generating...').then(async (message) => {message.delete(5000)})
