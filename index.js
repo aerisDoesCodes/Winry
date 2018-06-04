@@ -11,13 +11,12 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 const http = require('http');
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 const client = new Discord.Client();
 
 //Guild Event
 client.on("guildDelete", guild => {
-  client.user.setActivity(`${client.config.defaultSettings.prefix}help || ${client.guilds.size} Servers`, {type: "PLAYING"});
   const Discord = require("discord.js");
   const embed = new Discord.RichEmbed();
   // embed.setAuthor('Left', `${guild.iconURL}` || 'https://cdn.discordapp.com/attachments/446502365781295123/446655458292269076/Moosik.png')
@@ -27,10 +26,12 @@ client.on("guildDelete", guild => {
   .addField('Server ID', `${guild.id}`, true)
   .setColor(0xFF0000)
   client.guilds.get("446349464639373323").channels.get("446653576215789568").send({embed})
+  if (client.settings.has(guild.id)) {
+    client.settings.delete(guild.id);
+  }
 })
 
 client.on("guildCreate", guild => {
-  client.user.setActivity(`${client.config.defaultSettings.prefix}help || ${client.guilds.size} Servers`, {type: "PLAYING"});
   const Discord = require("discord.js");
   const embed = new Discord.RichEmbed();
   // embed.setAuthor('Joined', `${guild.iconURL}` || 'https://cdn.discordapp.com/attachments/446502365781295123/446655458292269076/Moosik.png')
