@@ -35,7 +35,7 @@
     "moment-duration-format": "^2.2.2",
     "random-puppy": "^1.1.0",
     "request": "^2.87.0",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
     "superagent": "^3.8.3",
     "canvas-constructor": "^1.0.1",
     "canvas": "^1.6.11",

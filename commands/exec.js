@@ -18,5 +18,4 @@ exports.help = {
   category: "System",
   description: "executes a new process.",
   usage: "exec <expression>"
->>>>>>> f628f89131fb1108514f2c2d3dcc61df44920a46
 };
