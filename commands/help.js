@@ -34,7 +34,7 @@ exports.run = (client, message, args, level) => {
     const Discord = require("discord.js");
     const embed = new Discord.RichEmbed();
     const pr = "w!";
-    embed.addField("Help Command", "[Support](https://discord.gg/HWEMcEY) | [Bot Invite](https://discordapp.com/oauth2/authorize?client_id=442917513454682122&permissions=201386057&scope=bot)"+
+    embed.addField("Help Command", "[Support](https://discord.gg/6Y2jTtR) | [Bot Invite](https://discordapp.com/oauth2/authorize?client_id=442917513454682122&permissions=201386057&scope=bot)"+
     " | [Donation](https://www.paypal.me/JohnLoveCookies)"+
     "\n**Prefix:** w!\n**Extended Help:** w!help <commandName>")
     .addField('<:ImageManipulator:448158184218165252> Image Manipulation', `\`${pr}achievement\`, \`${pr}bug\`, \`${pr}error\`, \`${pr}news\`, \`${pr}nut\`, \`${pr}penis\`,` + 
