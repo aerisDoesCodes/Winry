@@ -31,7 +31,7 @@ embed.setAuthor("STATISTICS", client.user.avatarURL)
 .addField("Uptime", `${duration}`, true)
 .addField("Version", `${ver}`, true)
 .setColor('#f1f199')
-message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
+message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
 })
 cooldown.add(message.author.id);
    setTimeout(() => {

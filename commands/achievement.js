@@ -21,7 +21,7 @@ if (cooldown.has(message.author.id)) {
   if(title.length > 22 || contents.length > 22) return message.edit("Max Length: 22 Characters. Soz.").then(message.delete.bind(message), 2000);
   const url = `https://www.minecraftskinstealer.com/achievement/a.php?i=${rnd}&h=${encodeURIComponent(title)}&t=${encodeURIComponent(contents)}`;
   snekfetch.get(url)
-   .then(r=>message.channel.send("", {files:[{attachment: r.body}]}));
+   .then(r=>message.channel.send("", {files:[{attachment: r.body}]})).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
   message.delete();
 cooldown.add(message.author.id);
    setTimeout(() => {

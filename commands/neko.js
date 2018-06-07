@@ -24,7 +24,7 @@ if(!voters) return message.channel.send("Senpai <:bloblove:448030481133338641> y
             embed.setImage(imageURL)
             .setDescription("Love me <:bloblove:448030481133338641>")
             .setColor('#d183d3')
-            message.channel.send({embed})
+            message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
   })
 })
   cooldown.add(message.author.id);

@@ -47,7 +47,7 @@ exports.run = (client, message, args, level) => {
     .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}help\`, \`${pr}post\`, \`${pr}reboot\`, \`${pr}reload\`​`)
 	.addField('Axyz', "[Axyz](https://discordapp.com/oauth2/authorize?client_id=449101697827209218&scope=bot&permissions=-1) is a Discord Bot for general Server use (Moderation, Giveaways, Autorole, Welcome Messages, Economy & More!). Invite Axyz by click [here](https://discordapp.com/oauth2/authorize?client_id=449101697827209218&scope=bot&permissions=-1).")
     .setColor('#f1f199')
-    message.channel.send({embed});
+    message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
   } else {
     // Show individual command's help.
     let command = args[0];
