@@ -7,11 +7,11 @@ const moment = require("moment");
 require("moment-duration-format");
 const fs = require('fs')
 const cmdFiles = fs.readdirSync('./commands/').length
-const ver = "Winry v4.0.0"
+const ver = "Winry v4.0.1"
 const cooldown = new Set();
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
-if(!message.guild.me.hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug.");
+if(!message.guild.me.hasPermission(`EMBED_LINKS`)) return message.channel.send("I don't have `Send Embed` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
 if (cooldown.has(message.author.id)) {
      return message.reply(`**please cool down! (6 seconds)**`).then(m => {
        m.delete(10000)

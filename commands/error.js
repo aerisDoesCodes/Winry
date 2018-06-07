@@ -1,7 +1,7 @@
 const cooldown = new Set();
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
- if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
+ if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
  if (cooldown.has(message.author.id)) {
       return message.reply(`**please cool down! (10 seconds)**`).then(m => {
         m.delete(10000)
@@ -23,7 +23,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
               image.print(font, 190, 207, "Cancel");
               image.getBuffer(jimp.AUTO, (err, buffer) => {
                 if (err) return console.log(err);
-                message.channel.sendFile(buffer).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
+                message.channel.sendFile(buffer).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
               })
            });
          });

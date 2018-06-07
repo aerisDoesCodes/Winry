@@ -37,7 +37,7 @@ collector.on("end", (collected, reason) => {
     message.channel.send("**Your password has been generated:** " + password)
   }
   if (reason === "dm") {
-    message.author.send("**Your password has been generated:** " + password).catch((err) => {message.channel.send(`:warning: **An error occurred.**\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
+    message.author.send("**Your password has been generated:** " + password).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
   }
 });
   cooldown.add(message.author.id);

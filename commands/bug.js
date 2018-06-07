@@ -1,7 +1,7 @@
 const cooldown = new Set();
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug.");
+if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
 const Jimp = require('jimp');
 if (cooldown.has(message.author.id)) {
      return message.reply(`**please cool down! (10 seconds)**`).then(m => {
