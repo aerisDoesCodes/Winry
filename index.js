@@ -11,8 +11,6 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 const http = require('http');
-const express = require('express');
-const app = express();
 const client = new Discord.Client();
 
 //Guild Event
@@ -72,16 +70,6 @@ client.settings = new Enmap({provider: new EnmapLevel({name: "settings"})});
 
 // We're doing real fancy node 8 async/await stuff here, and to do that
 // we need to wrap stuff in an anonymous function. It's annoying but it works.
-
-//For glitch.com
-app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping Received");
-  response.sendStatus(200);
-});
-app.listen(8080);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 300000);
 
 const init = async () => {
 

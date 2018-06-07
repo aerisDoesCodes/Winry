@@ -29,7 +29,6 @@
     "express": "^4.16.3",
     "random-puppy": "^1.1.0",
     "jimp": "^0.2.28",
-    "ping-lite": "^1.0.2",
     "dblapi.js": "^2.0.1",
     "got": "^8.3.1",
     "lodash": "^4.17.10",
@@ -38,7 +37,6 @@
     "canvas-constructor": "^1.0.1",
     "canvas": "^1.6.11",
     "generate-password": "^1.4.0",
-    "figlet": "^1.2.0",
-    "nekos.life": "^1.0.5"
+    "figlet": "^1.2.0"
   }
 }

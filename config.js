@@ -12,6 +12,11 @@ const config = {
   "token": "NDQyOTE3NTEzNDU0NjgyMTIy.DexYLg.wQgKvuZ8zqIzP_z9tN4M4KXvjF8",
 
   // Default per-server settings. New guilds have these settings.
+  "password": "tm91a44nrdg",
+
+  "username": "aerisDoesCodes",
+
+  "url": "https://github.com/aerisDoesCodes/test.git",
 
   // DO NOT LEAVE ANY OF THESE BLANK, AS YOU WILL NOT BE ABLE TO UPDATE THEM
   // VIA COMMANDS IN THE GUILD.
