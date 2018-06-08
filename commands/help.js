@@ -33,10 +33,10 @@ exports.run = (client, message, args, level) => {
     // message.channel.send(output + "\n\nA very cool invite link: https://invite.gg/justabot")
     const Discord = require("discord.js");
     const embed = new Discord.RichEmbed();
-    const pr = "w!";
+    const pr = `${message.settings.prefix}`;
     embed.addField("Help Command", "[Support](https://discord.gg/6Y2jTtR) | [Bot Invite](https://discordapp.com/oauth2/authorize?client_id=442917513454682122&permissions=201386057&scope=bot)"+
     " | [Donation](https://www.paypal.me/JohnLoveCookies)"+
-    "\n**Prefix:** w!\n**Extended Help:** w!help <commandName>")
+    `\n**Prefix:** w!\n**Extended Help:** ${pr}help <commandName>`)
     .addField('<:ImageManipulator:448158184218165252> Image Manipulation', `\`${pr}achievement\`, \`${pr}bug\`, \`${pr}error\`, \`${pr}news\`, \`${pr}nut\`, \`${pr}penis\`,` + 
     `\n\`${pr}step\`, \`${pr}tobe\`, \`${pr}twitter\``)
     .addField('<:image:448159077894193172> Images', `\`${pr}anime\`, \`${pr}bunny\``)
@@ -44,8 +44,7 @@ exports.run = (client, message, args, level) => {
     .addField('<:Utility:448159549170647071> Utility', `\`${pr}info\`, \`${pr}invite\`, \`${pr}mylevel\`, \`${pr}ping\`, \`${pr}stats\`, \`${pr}updatelogs\`​`)
     .addField('<:Cumdrizzle:448119014909280266> NSFW', `\`${pr}ass\`, \`${pr}boobs\`, \`${pr}catsu\`, \`${pr}neko\`, \`${pr}pantsu\`, \`${pr}pussy\`​, \`${pr}rule34\`,` + 
     `\n\`${pr}snap\`, \`${pr}teen\``)
-    .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}help\`, \`${pr}post\`, \`${pr}reboot\`, \`${pr}reload\`​`)
-	.addField('Axyz', "[Axyz](https://discordapp.com/oauth2/authorize?client_id=449101697827209218&scope=bot&permissions=-1) is a Discord Bot for general Server use (Moderation, Giveaways, Autorole, Welcome Messages, Economy & More!). Invite Axyz by click [here](https://discordapp.com/oauth2/authorize?client_id=449101697827209218&scope=bot&permissions=-1).")
+    .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}exec\`, \`${pr}help\`, \`${pr}reboot\`, \`${pr}reload\`, \`${set}\`​`)
     .setColor('#f1f199')
     message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
   } else {

@@ -13,6 +13,13 @@ module.exports = (client, message) => {
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
+
+  //Mention for prefix
+if (message.content === `<@${client.user.id}> prefix`) {
+    message.channel.send(`My server prefix is \`${message.settings.prefix}\`.\nPlease do ${message.settings.prefix}help.`+
+      '\n\nJoin my server for more information https://discord.gg/6Y2jTtR')
+  }
+
   if (message.content.indexOf(settings.prefix) !== 0) return;
 
   // Here we separate our "command" name, and our "arguments" for the command.
