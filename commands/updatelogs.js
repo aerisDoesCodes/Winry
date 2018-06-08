@@ -7,9 +7,9 @@ exports.run = (client, message, args, level) => {
        });
       }
 
-      const v401 = [
+      const v402 = [
         "\`\`\`diff"+
-        "\nWinry v4.0.1\n"+
+        "\nWinry v4.0.2\n"+
         "\n+ Fix error on set command \"w!set\" at System category (you can change prefix by w!set edit prefix PREFIX_HERE)"+
         "\n+ \"@Winry#5607 prefix\" to check the server prefix"+
         "\n+ Added Winry to VPS for better quality. Donate to https://www.paypal.me/JohnLoveCookies to keep Winry alive!"+
@@ -65,10 +65,10 @@ exports.run = (client, message, args, level) => {
     const collector = message.channel.createMessageCollector(m => m.author === message.author, {
       time: 25000
     });
-    message.channel.send("Which version updates would you want to see? Type: `cancel` to cancel\n List:\nv401, v400, v381, v360, v351, v341"+
+    message.channel.send("Which version updates would you want to see? Type: `cancel` to cancel\n List:\nv402, v400, v381, v360, v351, v341"+
     "\n\nPlease type the version you want. Example: v400")
     collector.on("message", m => {
-      if (m.content.toUpperCase() === "V401") collector.stop("v401");
+      if (m.content.toUpperCase() === "V402") collector.stop("v402");
       if (m.content.toUpperCase() === "V400") collector.stop("v400");
       if (m.content.toUpperCase() === "V381") collector.stop("v381");
       if (m.content.toUpperCase() === "V360") collector.stop("v360");
@@ -79,8 +79,8 @@ exports.run = (client, message, args, level) => {
     collector.on("end", (collected, reason) => {
       if (reason === "time") return message.channel.send("The prompt timed out...");
       if (reason === "aborted") return message.channel.send("The command has been aborted");
-      if (reason === "v401") {
-        message.channel.send("**June 8 2018 Updates:**" + v400)
+      if (reason === "v402") {
+        message.channel.send("**June 8 2018 Updates:**" + v402)
       }
       if (reason === "v400") {
         message.channel.send("**May 30 2018 Updates:**" + v400)
