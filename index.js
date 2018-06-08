@@ -11,7 +11,7 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 const http = require('http');
-const client = new Discord.Client();
+const client = new Discord.Client({disableEveryone: true});
 
 //Guild Event
 client.on("guildDelete", guild => {
