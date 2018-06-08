@@ -65,7 +65,7 @@ exports.run = (client, message, args, level) => {
     const collector = message.channel.createMessageCollector(m => m.author === message.author, {
       time: 25000
     });
-    message.channel.send("Which version updates would you want to see? Type: `cancel` to cancel\n List:\nv400, v381, v360, v351, v341"+
+    message.channel.send("Which version updates would you want to see? Type: `cancel` to cancel\n List:\nv401, v400, v381, v360, v351, v341"+
     "\n\nPlease type the version you want. Example: v400")
     collector.on("message", m => {
       if (m.content.toUpperCase() === "V401") collector.stop("v401");

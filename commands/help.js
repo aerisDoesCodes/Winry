@@ -44,7 +44,7 @@ exports.run = (client, message, args, level) => {
     .addField('<:Utility:448159549170647071> Utility', `\`${pr}info\`, \`${pr}invite\`, \`${pr}mylevel\`, \`${pr}ping\`, \`${pr}stats\`, \`${pr}updatelogs\`​`)
     .addField('<:Cumdrizzle:448119014909280266> NSFW', `\`${pr}ass\`, \`${pr}boobs\`, \`${pr}catsu\`, \`${pr}neko\`, \`${pr}pantsu\`, \`${pr}pussy\`​, \`${pr}rule34\`,` + 
     `\n\`${pr}snap\`, \`${pr}teen\``)
-    .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}exec\`, \`${pr}help\`, \`${pr}reboot\`, \`${pr}reload\`, \`${set}\`​`)
+    .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}exec\`, \`${pr}help\`, \`${pr}reboot\`, \`${pr}reload\`, \`${pr}set\`​`)
     .setColor('#f1f199')
     message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
   } else {
