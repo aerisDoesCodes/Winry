@@ -2,7 +2,7 @@ const exec = require('child_process').exec;
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 exec(`${args.join(' ')}`, (error, stdout) => {
       const response = (error || stdout);
-      message.channel.send(`Ran: ${message.content}\n\`\`\`${response}\`\`\``, {split: true}).catch(console.error);
+      message.channel.send(`\`OUTPUT\`\n\`\`\`${response}\`\`\``, {split: true}).catch(console.error);
     });
 };
 
