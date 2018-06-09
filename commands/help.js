@@ -33,6 +33,7 @@ exports.run = (client, message, args, level) => {
     // message.channel.send(output + "\n\nA very cool invite link: https://invite.gg/justabot")
     const Discord = require("discord.js");
     const embed = new Discord.RichEmbed();
+    const settings = message.settings = client.getGuildSettings(message.guild);
     const pr = `${message.settings.prefix}`;
     embed.addField("Help Command", "[Support](https://discord.gg/6Y2jTtR) | [Bot Invite](https://discordapp.com/oauth2/authorize?client_id=442917513454682122&permissions=201386057&scope=bot)"+
     " | [Donation](https://www.paypal.me/JohnLoveCookies)"+
