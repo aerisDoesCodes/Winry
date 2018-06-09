@@ -36,7 +36,7 @@ exports.run = (client, message, args, level) => {
     const settings = message.settings = client.getGuildSettings(message.guild);
     const pr = `${message.settings.prefix}`;
     embed.addField("Help Command", "[Support](https://discord.gg/6Y2jTtR) | [Bot Invite](https://discordapp.com/oauth2/authorize?client_id=442917513454682122&permissions=201386057&scope=bot)"+
-    " | [Donation](https://www.paypal.me/JohnLoveCookies)"+
+    " | [Donation](https://www.paypal.me/JohnLoveCookies) | [Website](https://winry.xyz/)"+
     `\n**Prefix:** ${pr}\n**Extended Help:** ${pr}help <commandName>`)
     .addField('<:ImageManipulator:448158184218165252> Image Manipulation', `\`${pr}achievement\`, \`${pr}bug\`, \`${pr}error\`, \`${pr}news\`, \`${pr}nut\`, \`${pr}penis\`,` + 
     `\n\`${pr}step\`, \`${pr}tobe\`, \`${pr}twitter\``)
