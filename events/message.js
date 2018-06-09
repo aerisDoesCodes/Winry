@@ -14,15 +14,10 @@ module.exports = (client, message) => {
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
 
-if (message.content === `<@${client.user.id}> prefix`) {
-    message.channel.send(`My server prefix is \`${message.settings.prefix}\`.\nPlease do ${message.settings.prefix}help.`+
+  if (message.content.match(`<@!?${client.user.id}> prefix`)) {
+  message.channel.send(`My server prefix is \`${message.settings.prefix}\`.\nPlease do ${message.settings.prefix}help.`+
       '\n\nJoin my server for more information https://discord.gg/6Y2jTtR')
-  }
-
-  if (message.content === `<@!${client.user.id}> prefix`) {
-    message.channel.send(`My server prefix is \`${message.settings.prefix}\`.\nPlease do ${message.settings.prefix}help.`+
-      '\n\nJoin my server for more information https://discord.gg/6Y2jTtR')
-  }
+}
 
   if (message.content.indexOf(settings.prefix) !== 0) return;
 
