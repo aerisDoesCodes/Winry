@@ -14,10 +14,12 @@ module.exports = (client, message) => {
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
 
-  const mentionPrefix = new RegExp(`^<@!?${client.user.id}>`);
+if (message.content === `<@${client.user.id}> prefix`) {
+    message.channel.send(`My server prefix is \`${message.settings.prefix}\`.\nPlease do ${message.settings.prefix}help.`+
+      '\n\nJoin my server for more information https://discord.gg/6Y2jTtR')
+  }
 
-  //Mention for prefix
-if (message.content === `${mentionPrefix} prefix`) {
+  if (message.content === `<@!${client.user.id}> prefix`) {
     message.channel.send(`My server prefix is \`${message.settings.prefix}\`.\nPlease do ${message.settings.prefix}help.`+
       '\n\nJoin my server for more information https://discord.gg/6Y2jTtR')
   }
