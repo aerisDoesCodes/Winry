@@ -1,5 +1,8 @@
 const snekfetch = require('snekfetch');
 const cooldown = new Set();
+const pr = `${message.settings.prefix}`;
+const  usageText = "The `text` argument is required.\n"+
+`Command Usage: ${pr}achievement <text>`
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
@@ -9,7 +12,7 @@ if (cooldown.has(message.author.id)) {
      });
    }
      let [title, contents] = args.join(" ").split("|");
-     if(!title) return message.reply("Please give me something to achieve!");
+     if(!title) return message.channel.send(usageText);
   if(!contents) {
     [title, contents] = ["Achievement Get!", title];
   }
@@ -40,5 +43,5 @@ exports.help = {
 name: "achievement",
 category: "Image Manipulation",
 description: "Send a Minecraft Achievement image to the channel.",
-usage: "achievement [text]"
+usage: "achievement <text>"
 };

@@ -1,5 +1,8 @@
+const  usageText = "The `command` argument is required.\n"+
+`Command Usage: ${pr}reload [command]`
+
 exports.run = async (client, message, args, level) => {// eslint-disable-line no-unused-vars
-  if (!args || args.length < 1) return message.reply("Must provide a command to reload. Derp.");
+  if (!args || args.length < 1) return message.channel.send(usageText);
 
   let response = await client.unloadCommand(args[0]);
   if (response) return message.reply(`Error Unloading: ${response}`);

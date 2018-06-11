@@ -1,4 +1,6 @@
 const cooldown = new Set();
+const  usageText = "The `text` argument is required.\n"+
+`Command Usage: ${pr}twitter <text>`
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
  if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
@@ -9,7 +11,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
      }
   const jimp = require('jimp');
   const content = message.content.split(' ').slice(1).join(' ');
-  if (!content) return message.reply("Arguments required!");
+  if (!content) return message.channel.send(usageText);
   if (content.length > 30) { return message.reply("You must not exceed more than 30 characters!") };
        jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Ftwitter.png?1527051965693', (err, image) => {
          message.channel.send(':gear: generating...').then(async (msg) => {msg.delete(5000)})
@@ -43,5 +45,5 @@ exports.help = {
   name: "twitter",
   category: "Image Manipulation",
   description: "Send an message from twitter.",
-  usage: "twitter [args]"
+  usage: "twitter <text>"
 };

@@ -65,5 +65,5 @@ exports.help = {
   name: "penis",
   category: "Image Manipulation",
   description: "Show user's penis size.",
-  usage: "penis [user](Optional)"
+  usage: "penis [member](Optional)"
 };

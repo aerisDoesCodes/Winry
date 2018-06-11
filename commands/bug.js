@@ -50,5 +50,5 @@ exports.help = {
 name: "bug",
 category: "Image Manipulation",
 description: "Show's an bug in code image.",
-usage: "bug [user](Optional)"
+usage: "bug [member](Optional)"
 };

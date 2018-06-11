@@ -55,5 +55,5 @@ exports.help = {
   name: "boobs",
   category: "NSFW",
   description: "Send's random boobs from http://api.oboobs.ru/boobs/noise/",
-  usage: "pantsu"
+  usage: "boobs"
 };

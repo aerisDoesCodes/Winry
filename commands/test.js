@@ -1,5 +1,10 @@
+const  usageText = "The `test` argument is required.\n"+
+`Command Usage: ${pr}test <test>`
+
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  message.channel.send('test')
+  const content = message.content.split(' ').slice(1).join(' ');
+  if(!content) return message.channel.send(usageText);
+  message.channel.send(content)
 }
 exports.conf = {
   enabled: true,
@@ -12,5 +17,5 @@ exports.help = {
   name: "test",
   category: "ok",
   description: "Not sure what should I add here.",
-  usage: "test [ok]"
+  usage: "test <test>"
 };

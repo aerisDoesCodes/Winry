@@ -1,5 +1,8 @@
 const cooldown = new Set();
 const figletAsync = require('util').promisify(require('figlet'));
+const pr = `${message.settings.prefix}`;
+const  usageText = "The `text` argument is required.\n"+
+`Command Usage: ${pr}achievement <text>`
 
 exports.run = async (client, message, level) => {
   if (cooldown.has(message.author.id)) {
@@ -9,7 +12,7 @@ exports.run = async (client, message, level) => {
       }
 const args = message.content.split(' ').slice(1).join(' ');
 
-if (!args) return message.reply("Please give me something to say!");
+if (!args) return message.channel.send(usageText);
 if (args.length > '15') return message.reply("You must not exceed more than 15 characters!");
 const data = await figletAsync(args);
 return message.channel.send(data, { code: true });

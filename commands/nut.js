@@ -1,4 +1,7 @@
 const cooldown = new Set();
+const pr = `${message.settings.prefix}`;
+const  usageText = "The `text` argument is required.\n"+
+`Command Usage: ${pr}nut <text>`
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
  if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
@@ -9,7 +12,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
      }
   const jimp = require('jimp');
      const content = message.content.split(' ').slice(1).join(' ');
-       if (!content) return message.reply("Gimme somethin to nut mate!");
+       if (!content) return message.channel.send(usageText);
        jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Fnut.jpg?1525878903872', (err, image) => {
          message.channel.send(':gear: generating...').then(async (msg) => {msg.delete(5000)})
          if (err) return console.log(err);
@@ -42,5 +45,5 @@ exports.help = {
   name: "nut",
   category: "Image Manipulation",
   description: "Give some nut.",
-  usage: "nut [args]"
+  usage: "nut <text>"
 };

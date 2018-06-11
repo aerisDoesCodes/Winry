@@ -1,4 +1,7 @@
 const cooldown = new Set();
+const pr = `${message.settings.prefix}`;
+const  usageText = "The `text` argument is required.\n"+
+`Command Usage: ${pr}achievement <text>`
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
  if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
@@ -9,7 +12,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
      }
   const jimp = require('jimp');
   const content = message.content.split(' ').slice(1).join(' ');
-  if (!content) return message.reply("Gimme an error to send!");
+  if (!content) return message.channel.send(usageText);
   if (content.length > 15) { return message.reply("You must not exceed more than 15 characters!") };
        jimp.read('http://i.imgur.com/b9yMgxq.jpg', (err, image) => {
          message.channel.send(':gear: generating...').then(async (msg) => {msg.delete(5000)})
@@ -59,5 +62,5 @@ exports.help = {
   name: "error",
   category: "Image Manipulation",
   description: "Send an error image.",
-  usage: "error [args]"
+  usage: "error [text]"
 };

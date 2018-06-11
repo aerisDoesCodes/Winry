@@ -50,5 +50,5 @@ exports.help = {
 name: "news",
 category: "Image Manipulation",
 description: "Show's image of man breaks a house.",
-usage: "news [user](Optional)"
+usage: "news [member](Optional)"
 };

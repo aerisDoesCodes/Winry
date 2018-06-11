@@ -1,4 +1,6 @@
 const cooldown = new Set();
+const  usageText = "The `member` argument is required.\n"+
+`Command Usage: ${pr}step <member>`
 
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
@@ -11,7 +13,7 @@ if (cooldown.has(message.author.id)) {
    // const content = message.content.split(' ').slice(1).join(' ');
    //   if (!content) return message.reply("Gimme somethin to nut mate!");
 const user = message.mentions.users.first();
-if(!user) return message.channel.send("Please mention someone to get stepped.");
+if(!user) return message.channel.send(usageText);
 Jimp.read(message.author.avatarURL || message.author.defaultAvatarURL, function (err, auth){
  Jimp.read(user.avatarURL || user.defaultAvatarURL, function (err, lonna){
  Jimp.read('https://cdn.glitch.com/aface8e8-5406-40cd-b4ab-f54eaa7496c7%2Few.png?1526647957214', (err, lenna) => {
@@ -47,5 +49,5 @@ exports.help = {
 name: "step",
 category: "Image Manipulation",
 description: "Ew I step in shit.",
-usage: "step [user]"
+usage: "step <member>"
 };

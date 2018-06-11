@@ -6,8 +6,12 @@
 
 // However it's, like, super ultra useful for troubleshooting and doing stuff
 // you don't want to put in a command.
+const pr = `${message.settings.prefix}`;
+const  usageText = "The `code` argument is required.\n"+
+`Command Usage: ${pr}eval <code>`
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   const code = args.join(" ");
+  if(!args) return message.channel.send(usageText);
   try {
     const evaled = eval(code);
     const clean = await client.clean(client, evaled);

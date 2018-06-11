@@ -45,5 +45,5 @@ exports.help = {
   name: "catsu",
   category: "NSFW",
   description: "Send's random catgirls from /r/cat_girls",
-  usage: "pantsu"
+  usage: "catsu"
 };
