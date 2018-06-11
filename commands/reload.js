@@ -1,3 +1,4 @@
+const pr = `${message.settings.prefix}`;
 const  usageText = "The `command` argument is required.\n"+
 `Command Usage: ${pr}reload [command]`
 

@@ -1,4 +1,5 @@
 const cooldown = new Set();
+const pr = `${message.settings.prefix}`;
 const  usageText = "The `member` argument is required.\n"+
 `Command Usage: ${pr}step <member>`
 
