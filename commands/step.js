@@ -1,9 +1,9 @@
 const cooldown = new Set();
+
+exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 const pr = `${message.settings.prefix}`;
 const  usageText = "The `member` argument is required.\n"+
 `Command Usage: ${pr}step <member>`
-
-exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 if(!message.guild.me.hasPermission(`ATTACH_FILES`)) return message.channel.send("I don't have `Attach Files` permission.\nPlease contact an administrator if you think this is a bug https://discord.gg/6Y2jTtR.");
 const Jimp = require('jimp');
 if (cooldown.has(message.author.id)) {

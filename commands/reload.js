@@ -1,8 +1,8 @@
+exports.run = async (client, message, args, level) => {// eslint-disable-line no-unused-vars
 const pr = `${message.settings.prefix}`;
 const  usageText = "The `command` argument is required.\n"+
 `Command Usage: ${pr}reload [command]`
 
-exports.run = async (client, message, args, level) => {// eslint-disable-line no-unused-vars
   if (!args || args.length < 1) return message.channel.send(usageText);
 
   let response = await client.unloadCommand(args[0]);
