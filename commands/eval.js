@@ -9,7 +9,7 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   const pr = `${message.settings.prefix}`;
   const  usageText = "The `code` argument is required.\n"+
-  `Command Usage: ${pr}eval <code>`
+  `Command Usage: \`${pr}eval <code>\``
   const code = args.join(" ");
   if(!args) return message.channel.send(usageText);
   try {
