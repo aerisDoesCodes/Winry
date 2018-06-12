@@ -30,7 +30,7 @@ embed.setAuthor("STATISTICS", client.user.avatarURL)
 .addField("Upvotes", `${k.length}`, true)
 .addField("Uptime", `${duration}`, true)
 .addField("Version", `${ver}`, true)
-.addField("Website", "[Visit here](https://winry.xyz/)", true)
+.addField("Website", "https://winry.xyz/", true)
 .setColor('#f1f199')
 message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
 })
