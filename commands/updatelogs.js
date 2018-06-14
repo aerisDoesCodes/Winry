@@ -7,6 +7,14 @@ exports.run = (client, message, args, level) => {
        });
       }
 
+      const v413 = [
+        "\`\`\`diff"+
+        "\nWinry v4.1.3\n"+
+        "\n+ Added a utility command \"w!serverinfo\""+
+        "\n+ Donation would be appreciated https://www.paypal.me/JohnLoveCookies"+
+        "\`\`\`"
+      ]
+
       const v402 = [
         "\`\`\`diff"+
         "\nWinry v4.0.2\n"+
@@ -51,34 +59,26 @@ exports.run = (client, message, args, level) => {
         "\`\`\`"
       ]
     
-      const v341 = [
-        "\`\`\`diff"+
-        "\nWinry v3.4.1\n"+
-        "\n+ Added NSFW Commands \"w!rule34 and w!snap\""+
-        "\n+ Added \"w!updatelogs\" command to stay updated"+
-        "\n+ Fix typo description"+
-        "\n+ All commands now have descriptions"+
-        "\n+ More NSFW commands coming soon™"+
-        "\`\`\`"
-        ]
-    
     const collector = message.channel.createMessageCollector(m => m.author === message.author, {
       time: 25000
     });
-    message.channel.send("Which version updates would you want to see? Type: `cancel` to cancel\n List:\nv402, v400, v381, v360, v351, v341"+
+    message.channel.send("Which version updates would you want to see? Type: `cancel` to cancel\n List:\nv402, v400, v381, v360, v351"+
     "\n\nPlease type the version you want. Example: v400")
     collector.on("message", m => {
+      if (m.content.toUpperCase() === "V413") collector.stop("v413");
       if (m.content.toUpperCase() === "V402") collector.stop("v402");
       if (m.content.toUpperCase() === "V400") collector.stop("v400");
       if (m.content.toUpperCase() === "V381") collector.stop("v381");
       if (m.content.toUpperCase() === "V360") collector.stop("v360");
       if (m.content.toUpperCase() === "V351") collector.stop("v351");
-      if (m.content.toUpperCase() === "V341") collector.stop("v341");
       if (m.content.toUpperCase() === "CANCEL") collector.stop("aborted");
     });
     collector.on("end", (collected, reason) => {
       if (reason === "time") return message.channel.send("The prompt timed out...");
       if (reason === "aborted") return message.channel.send("The command has been aborted");
+      if (reason === "v413") {
+        message.channel.send("**June 14 2018 Update:**" + v413)
+      }
       if (reason === "v402") {
         message.channel.send("**June 8 2018 Updates:**" + v402)
       }
@@ -93,9 +93,6 @@ exports.run = (client, message, args, level) => {
       }
       if (reason === "v351") {
         message.channel.send("**May 28 2018 Update:**" + v351)
-      }
-      if (reason === "v341") {
-        message.channel.send("**May 27 2018 Updates:**" + v341)
       }
     });
   cooldown.add(message.author.id);
