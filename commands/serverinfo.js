@@ -11,7 +11,7 @@ if (cooldown.has(message.author.id)) {
        m.delete(10000)
      });
     }
-    const ver = message.guild.id !== servers
+    // const ver = message.guild.id !== servers
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed();
     embed.setAuthor(`${message.guild.name}`, message.guild.iconURL || "https://owo.whats-th.is/207d77.png")
@@ -23,7 +23,6 @@ if (cooldown.has(message.author.id)) {
     embed.addField('Roles', `${message.guild.roles.filter(r => r.name).size.toLocaleString()}`, true);
     embed.addField('Channels', `${message.guild.channels.filter(r => r.name).size.toLocaleString()}`, true);
     embed.addField('Created At', `${moment(message.guild.createdAt).format('ddd MMM Do YYYY')}`, true);
-    embed.addField('Verification Level', `${message.guild.verificationLevel}`, true);
 //    embed.addField('Verified Server', `${servers[msg.channel.guild.id]} false` || `<:VerifiedServer:456834641945559040>`)
     embed.setColor('#f1f199');
     message.channel.send({embed});
