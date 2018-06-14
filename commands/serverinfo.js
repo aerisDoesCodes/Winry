@@ -42,6 +42,6 @@ permLevel: "User"
 exports.help = {
 name: "serverinfo",
 category: "Utility",
-description: `Show's statistic about the ${message.guild.name}.` || "Show's statistic about the server.",
+description: "Show's statistic about the server.",
 usage: "info"
 };
