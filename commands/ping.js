@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     "OwO what is this?",
     "Are you a bot?",
     "Noticed me senpai!",
-    "Does people even use this?",
+    "Do people even use this?",
     "Is this thing even working?",
     "Who are you?",
     "Why should I even do this?",
@@ -13,8 +13,11 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
     "Yes, I am alive!",
     "uh?"
   ]
-  const msg = await message.channel.send("Ping?");
-  msg.edit(`**${randomText[Math.floor(Math.random() * randomText.length)]}**` + ' - ' + `Pong! ${Math.round(client.ping)}ms`);
+  const Discord = require('discord.js');
+  const embed = new Discord.RichEmbed();
+  embed.setDescription(`[**${randomText[Math.floor(Math.random() * randomText.length)]}** - Pong! ${Math.round(client.ping)}ms](https://www.youtube.com/watch?v=vjw3nYAt7rw&t=5s)`)
+  embed.setColor('#f1f199');
+  message.channel.send({embed});
 };
 
 exports.conf = {
