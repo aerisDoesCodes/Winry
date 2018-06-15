@@ -12,12 +12,13 @@ if (cooldown.has(message.author.id)) {
      });
     }
     // const ver = message.guild.id !== servers
+    if (!message.guild.members.has(msg.guild.ownerID)) await message.guild.members.fetch(msg.guild.ownerID);
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed();
     embed.setAuthor(`${message.guild.name}`, message.guild.iconURL || "https://owo.whats-th.is/207d77.png")
     embed.addField('ID', `${message.guild.id}`, true)
     embed.addField('Owner', `${message.guild.owner.user.tag}`, true);
-    embed.addField('Owner id', `${message.guild.owner.id}`, true);
+    embed.addField('Owner id', `${message.guild.ownerID}`, true);
     embed.addField('Region', `${message.guild.region}`, true);
     embed.addField('Members', `${message.guild.memberCount.toLocaleString()}`, true);
     embed.addField('Roles', `${message.guild.roles.filter(r => r.name).size.toLocaleString()}`, true);
