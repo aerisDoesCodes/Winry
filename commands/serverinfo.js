@@ -12,7 +12,7 @@ if (cooldown.has(message.author.id)) {
      });
     }
     // const ver = message.guild.id !== servers
-    if (!message.guild.members.has(message.guild.ownerID)) await message.guild.members.fetch(message.guild.ownerID);
+    if (!message.guild.members.has(message.guild.ownerID)) await message.guild.members.fetchMember(message.guild.ownerID);
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed();
     embed.setAuthor(`${message.guild.name}`, message.guild.iconURL || "https://owo.whats-th.is/207d77.png")
@@ -27,7 +27,7 @@ if (cooldown.has(message.author.id)) {
     embed.addField('Verification Level', `${message.guild.verificationLevel}`, true);
 //    embed.addField('Verified Server', `${servers[msg.channel.guild.id]} false` || `<:VerifiedServer:456834641945559040>`)
     embed.setColor('#f1f199');
-    message.channel.send({embed});
+    message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
 cooldown.add(message.author.id);
    setTimeout(() => {
      cooldown.delete(message.author.id);
