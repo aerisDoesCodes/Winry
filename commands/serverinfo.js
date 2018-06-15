@@ -12,7 +12,7 @@ if (cooldown.has(message.author.id)) {
      });
     }
     // const ver = message.guild.id !== servers
-    if (!message.guild.members.has(msg.guild.ownerID)) await message.guild.members.fetch(msg.guild.ownerID);
+    if (!message.guild.members.has(message.guild.ownerID)) await message.guild.members.fetch(message.guild.ownerID);
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed();
     embed.setAuthor(`${message.guild.name}`, message.guild.iconURL || "https://owo.whats-th.is/207d77.png")
