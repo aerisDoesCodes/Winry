@@ -39,6 +39,7 @@ client.on("guildCreate", guild => {
   .addField('Server ID', `${guild.id}`, true)
   .setColor(0x00ff00)
   client.guilds.get("446349464639373323").channels.get("446653576215789568").send({embed})
+  if(client.guilds.get('439438441764356097')) return guild.leave()
 })
 
 // This is your client. Some people call it `bot`, some people call it `self`,
