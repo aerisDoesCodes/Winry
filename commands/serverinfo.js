@@ -11,6 +11,7 @@ if (cooldown.has(message.author.id)) {
        m.delete(10000)
      });
     }
+    //Note JUST DO if else for verified server or not! Hardcode ftw!
     // const ver = message.guild.id !== servers
     if (!message.guild.members.has(message.guild.ownerID)) await message.guild.fetchMember(message.guild.ownerID);
     const Discord = require('discord.js');
