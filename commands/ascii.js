@@ -4,7 +4,7 @@ const figletAsync = require('util').promisify(require('figlet'));
 exports.run = async (client, message, level) => {
   const pr = `${message.settings.prefix}`;
   const  usageText = "The `text` argument is required.\n"+
-  `Command Usage: \`${pr}achievement <text>\``
+  `Command Usage: \`${pr}ascii <text>\``
 
   if (cooldown.has(message.author.id)) {
        return message.channel.send(`**${message.author.username}, please cool down! (3 seconds)**`).then(m => {
