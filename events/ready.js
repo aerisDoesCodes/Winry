@@ -1,6 +1,6 @@
 const DBL = require("dblapi.js");
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0MjkxNzUxMzQ1NDY4MjEyMiIsImJvdCI6dHJ1ZSwiaWF0IjoxNTI2ODY0MDk1fQ.qpD1MaIePeW8I6LbcqqdEqm5tEFgThIKTX87bkX9YSY');
-const games = ["w!upvote || w!help", "with abc || w!help", "https://winry.xyz/", "with xyz || w!help", "discord.gg/6Y2jTtR || w!help"];
+const games = ["w!upvote || w!help", "with abc || w!help", "winry.xyz/", "with xyz || w!help", "winry.xyz/support || w!help", "winry.xyz/invite || w!help"];
 
 module.exports = async client => {
   // Log that the bot is online.
