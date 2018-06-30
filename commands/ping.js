@@ -17,7 +17,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   const embed = new Discord.RichEmbed();
   embed.setDescription(`[**${randomText[Math.floor(Math.random() * randomText.length)]}** - Pong! ${Math.round(client.ping)}ms](https://www.youtube.com/watch?v=vjw3nYAt7rw&t=5s)`)
   embed.setColor('#f1f199');
-  message.channel.send({embed});
+  message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
 };
 
 exports.conf = {
