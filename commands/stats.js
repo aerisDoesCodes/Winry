@@ -7,7 +7,7 @@ const moment = require("moment");
 require("moment-duration-format");
 const fs = require('fs')
 const cmdFiles = fs.readdirSync('./commands/').length
-const ver = "Winry v4.1.7"
+const ver = "Winry v4.8"
 const cooldown = new Set();
 
 exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
