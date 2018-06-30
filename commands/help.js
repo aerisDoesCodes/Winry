@@ -46,6 +46,9 @@ exports.run = (client, message, args, level) => {
     .addField('<:Cumdrizzle:448119014909280266> NSFW', `\`${pr}ass\`, \`${pr}boobs\`, \`${pr}catsu\`, \`${pr}neko\`, \`${pr}pantsu\`, \`${pr}pussy\`​, \`${pr}rule34\`,` + 
     `\n\`${pr}snap\`, \`${pr}teen\``)
     .addField('<:system:448160364731826176> System', `\`${pr}eval\`, \`${pr}exec\`, \`${pr}help\`, \`${pr}reboot\`, \`${pr}reload\`, \`${pr}set\`​`)
+    .addField("**Announcement**", "VPS will expire at July 7th, right now I am short on budget due to me paying my school fees."+
+    " Please help me buy a new VPS that only cost $6 per month. Any amount of donations would be great just to keepy **Winry** alive. Thanks!"+ 
+    "\nPlease do donate here **https://www.paypal.me/JohnLoveCookies**")
     .setColor('#f1f199')
     message.channel.send({embed}).catch((err) => {message.channel.send(`:warning: **An error occurred.** https://discord.gg/6Y2jTtR\n\`\`\`js\n${err.stack}\`\`\``); console.log(err)});
   } else {
