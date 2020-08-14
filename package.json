@@ -39,7 +39,7 @@
     "superagent": "^3.8.3",
     "canvas-constructor": "^1.0.1",
     "canvas": "^1.6.11",
-    "generate-password": "^1.4.0",
+    "generate-password": "^1.4.1",
     "figlet": "^1.2.0"
   }
 }
